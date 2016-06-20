@@ -5,17 +5,14 @@ export default function(Component){
             this.name = 'cells';
         }
 
-        _template(){
-            if ( typeof this.template === 'function' ){
-                return this.template();
-            }
+        template(){
             return `<div class="mx-cells" role="cells" :style="{'border-color':borderColor}"><slot></slot></div>`;
         }
 
-        _props(props, take){
-            if ( !props ){ props = {} };
+        props(){
+            const props = {};
             props.borderColor = String;
-            return take('props', props);
+            return props
         }
     }
     return Cells;

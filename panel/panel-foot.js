@@ -6,16 +6,14 @@ export default function(Component){
             this.name = 'panel-foot';
         }
 
-        _template(){
-            if ( typeof this.template === 'function' ){
-                return this.template();
-            }
+        template(){
             return `<div class="mx-panel-foot" :class="{'mx-panel-linked':linked}"><slot></slot></div>`;
         }
-        _props(props, take){
-            if ( !props ){ props = {} };
-            props.linked = Boolean;
-            return take('props', props);
+
+        props(){
+            return {
+                linked: Boolean
+            }
         }
     }
     return Panel_Foot

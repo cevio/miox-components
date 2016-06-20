@@ -177,13 +177,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(AppView, [{
-	            key: '_computed',
-	            value: function _computed(computed, take) {
-	                if (!computed) {
-	                    computed = {};
-	                }
-
-	                computed.style = function () {
+	            key: 'computed',
+	            value: function computed(_computed) {
+	                _computed.style = function () {
 	                    if (this.blank) {
 	                        return {
 	                            'padding-top': 20
@@ -191,25 +187,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    }
 	                };
 
-	                return take('computed', computed);
+	                return _computed;
 	            }
 	        }, {
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-appview" role="appview" :class="{\'mx-appview-horizontal\': horizontal}" :style="style"><slot></slot></div>';
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) {
-	                    props = {};
-	                };
+	            key: 'props',
+	            value: function props() {
+	                var props = {};
 	                props.blank = Boolean;
 	                props.horizontal = Boolean;
-	                return take('props', props);
+	                return props;
 	            }
 	        }]);
 
@@ -253,11 +244,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(AppViewHead, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-appview-head" role="appview-head"><slot></slot></div>';
 	            }
 	        }]);
@@ -302,11 +290,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(AppViewBody, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-appview-body" role="appview-body"><slot></slot></div>';
 	            }
 	        }]);
@@ -351,11 +336,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(AppViewFoot, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-appview-foot" role="appview-foot"><slot></slot></div>';
 	            }
 	        }]);
@@ -400,11 +382,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Aspect, [{
-	            key: '_computed',
-	            value: function _computed(options, take) {
-	                if (!options) {
-	                    options = {};
-	                }
+	            key: 'computed',
+	            value: function computed(options) {
 	                options.class = function () {
 	                    var cls = [];
 	                    if (this.align) {
@@ -412,26 +391,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    }
 	                    return cls.join(' ');
 	                };
-	                return take('computed', options);
+	                return options;
 	            }
 	        }, {
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-aspect" role="aspect" :style="{width:width}" :class="class"><div class="mx-aspect-inner"><slot></slot></div><div class="mx-aspect-after" :style="{\'padding-bottom\':ratio}"></div></div>';
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) {
-	                    props = {};
-	                };
+	            key: 'props',
+	            value: function props() {
+	                var props = {};
 	                props.width = { type: String, default: '100%' };
 	                props.align = String;
 	                props.ratio = { type: String, default: "100%" };
-	                return take('props', props);
+	                return props;
 	            }
 	        }]);
 
@@ -521,21 +495,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Cells, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-cells" role="cells" :style="{\'border-color\':borderColor}"><slot></slot></div>';
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) {
-	                    props = {};
-	                };
+	            key: 'props',
+	            value: function props() {
+	                var props = {};
 	                props.borderColor = String;
-	                return take('props', props);
+	                return props;
 	            }
 	        }]);
 
@@ -579,23 +548,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Cell, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-cell" role="cell" data-left="0" :class="{\'mx-cell-linked\':linked}" :style="{\'border-color\':borderColor,\'padding-left\':left}"><slot></slot></div>';
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) {
-	                    props = {};
-	                };
+	            key: 'props',
+	            value: function props() {
+	                var props = {};
 	                props.linked = Boolean;
 	                props.borderColor = String;
 	                props.left = { type: String, default: '' };
-	                return take('props', props);
+	                return props;
 	            }
 	        }]);
 
@@ -639,11 +603,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Cell_Head, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-cell-head" role="cell:head"><slot></slot></div>';
 	            }
 	        }]);
@@ -688,11 +649,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Cell_Body, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-cell-body" role="cell:body"><slot></slot></div>';
 	            }
 	        }]);
@@ -737,11 +695,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Cell_Foot, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-cell-foot" role="cell-foot"><slot></slot></div>';
 	            }
 	        }]);
@@ -764,7 +719,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 13 */
 /***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -786,39 +741,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Checkbox, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
-	                return '\n                <label class="mx-checkbox" :type="type" role="input:checkbox" :for="id" >\n                    <input :checked="checked" :id="id" type="checkbox" :name="name" :value="value" class="mx-checkbox-input">\n                    <span :style="{\'font-size\':size}"  @click="elClick" class="mx-checkbox-vision"></span>\n                    <slot><slot>\n                </label>';
+	            key: "template",
+	            value: function template() {
+	                return "\n                <label class=\"mx-checkbox\" :type=\"type\" role=\"input:checkbox\" >\n                    <input :checked=\"checked\" type=\"checkbox\" :name=\"name\" :value=\"value\" class=\"mx-checkbox-input\">\n                    <span :style=\"{'font-size':size}\"  @click=\"elClick\" class=\"mx-checkbox-vision\"></span>\n                    <slot><slot>\n                </label>";
 	            }
 	        }, {
-	            key: '_methods',
-	            value: function _methods(methods, take) {
-	                if (!methods) methods = {};
-
-	                methods.elClick = function () {
+	            key: "methods",
+	            value: function methods(_methods) {
+	                _methods.elClick = function () {
 	                    this.$el.click();
 	                };
 
-	                return take('methods', methods);
+	                return _methods;
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) {
-	                    props = {};
-	                };
-	                props = {
+	            key: "props",
+	            value: function props() {
+	                return {
 	                    name: String,
 	                    value: String,
-	                    id: String,
 	                    size: String,
 	                    type: String,
 	                    checked: Boolean
 	                };
-	                return take('props', props);
 	            }
 	        }]);
 
@@ -893,12 +838,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Flex, [{
-	            key: '_computed',
-	            value: function _computed(options, take) {
-	                if (!options) {
-	                    options = {};
-	                }
-
+	            key: 'computed',
+	            value: function computed(options) {
 	                options.style = function () {
 	                    return this.flex != undefined ? {
 	                        boxFlex: this.flex,
@@ -932,41 +873,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return classes.join(' ');
 	                };
 
-	                return take('computed', options);
+	                return options;
 	            }
 	        }, {
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-flex-box" :class="class" :style="style"><slot></slot></div>';
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) {
-	                    props = {};
+	            key: 'props',
+	            value: function props() {
+	                return {
+	                    flex: String,
+	                    direction: String, // row|column|row-reverse|column-reverse
+	                    justify: String, // start|center|end|between|around
+	                    alignItems: String, // start|center|end|between|around
+	                    alignContent: String, // start|center|end|between|around
+	                    wrap: String // wrap|nowrap|wrap-reverse
 	                };
-
-	                props.flex = String;
-
-	                // row|column|row-reverse|column-reverse
-	                props.direction = String;
-
-	                // start|center|end|between|around
-	                props.justify = String;
-
-	                // start|center|end|between|around
-	                props.alignItems = String;
-
-	                // start|center|end|between|around
-	                props.alignContent = String;
-
-	                // wrap|nowrap|wrap-reverse
-	                props.wrap = String;
-
-	                return take('props', props);
 	            }
 	        }]);
 
@@ -1010,11 +934,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Flex_Item, [{
-	            key: '_computed',
-	            value: function _computed(options, take) {
-	                if (!options) {
-	                    options = {};
-	                }
+	            key: 'computed',
+	            value: function computed(options) {
 	                options.style = function () {
 	                    var cls = {};
 
@@ -1044,24 +965,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return classes.join(' ');
 	                };
 
-	                return take('computed', options);
+	                return options;
 	            }
 	        }, {
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-flex-item" :class="classes" :style="style"><slot></slot></div>';
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) {
-	                    props = [];
-	                };
-	                props.push('flex', 'order', 'justify', 'align-self', 'basis');
-	                return take('props', props);
+	            key: 'props',
+	            value: function props() {
+	                return ['flex', 'order', 'justify', 'align-self', 'basis'];
 	            }
 	        }]);
 
@@ -1105,11 +1019,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Middle, [{
-	            key: '_computed',
-	            value: function _computed(options, take) {
-	                if (!options) {
-	                    options = {};
-	                }
+	            key: 'computed',
+	            value: function computed(options) {
 	                options.class = function () {
 	                    var cls = [];
 	                    if (this.align) {
@@ -1117,24 +1028,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    }
 	                    return cls.join(' ');
 	                };
-	                return take('computed', options);
+	                return options;
 	            }
 	        }, {
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-middle-outter" role="middle" :style="{\'height\':height}" :class="class"><div class="mx-middle-inner"><slot></slot></div></div>';
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) {
-	                    props = [];
-	                };
-	                props.push('height', 'align');
-	                return take('props', props);
+	            key: 'props',
+	            value: function props(_props, take) {
+	                return ['height', 'align'];
 	            }
 	        }]);
 
@@ -1209,11 +1113,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Navgation, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-navgation"><flex align-items="center" justify="center"><slot></slot></flex></div>';
 	            }
 	        }]);
@@ -1258,31 +1159,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Navgation_Item, [{
-	            key: '_computed',
-	            value: function _computed(computed, take) {
-	                if (!computed) computed = {};
-	                computed.grid = function () {
+	            key: 'computed',
+	            value: function computed(_computed) {
+	                _computed.grid = function () {
 	                    return (this.center ? 1 : 0) + ' 0 ' + (this.width || 0);
 	                };
-	                return take('computed', computed);
+	                return _computed;
 	            }
 	        }, {
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<flex-item :flex.sync="grid" :class="{\'mx-text-center\': center, \'mx-text-left\': left, \'mx-text-right\': right}"><slot></slot></flex-item>';
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) props = {};
+	            key: 'props',
+	            value: function props() {
+	                var props = {};
 	                props.width = String;
 	                props.center = Boolean;
 	                props.left = Boolean;
 	                props.right = Boolean;
-	                return take('props', props);
+	                return props;
 	            }
 	        }]);
 
@@ -1365,21 +1262,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Panel, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-panel" :style="{\'border-color\':borderColor}"><slot></slot></div>';
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) {
-	                    props = {};
-	                };
+	            key: 'props',
+	            value: function props() {
+	                var props = {};
 	                props.borderColor = String;
-	                return take('props', props);
+	                return props;
 	            }
 	        }]);
 
@@ -1423,21 +1315,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Panel_Head, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-panel-head" :class="{\'mx-panel-linked\':linked}"><slot></slot></div>';
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) {
-	                    props = {};
+	            key: 'props',
+	            value: function props() {
+	                return {
+	                    linked: Boolean
 	                };
-	                props.linked = Boolean;
-	                return take('props', props);
 	            }
 	        }]);
 
@@ -1481,11 +1368,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Panel_Body, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-panel-body"><slot></slot></div>';
 	            }
 	        }]);
@@ -1530,21 +1414,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Panel_Foot, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '<div class="mx-panel-foot" :class="{\'mx-panel-linked\':linked}"><slot></slot></div>';
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) {
-	                    props = {};
+	            key: 'props',
+	            value: function props() {
+	                return {
+	                    linked: Boolean
 	                };
-	                props.linked = Boolean;
-	                return take('props', props);
 	            }
 	        }]);
 
@@ -1588,42 +1467,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        _createClass(Radio, [{
-	            key: '_template',
-	            value: function _template() {
-	                if (typeof this.template === 'function') {
-	                    return this.template();
-	                }
+	            key: 'template',
+	            value: function template() {
 	                return '\n            <label class="mx-radio" role="input:radio">\n                <input type="radio" :name="name" :value="value" class="mx-radio-input" v-model="data">\n                <span :style="{\'font-size\':size}" @click.stop="radioClick" class="mx-radio-vision"></span>\n                <slot><slot>\n            </label>';
 	            }
 	        }, {
-	            key: '_methods',
-	            value: function _methods(methods, take) {
-	                if (!methods) methods = {};
-
-	                methods.radioClick = function () {
+	            key: 'methods',
+	            value: function methods(_methods) {
+	                _methods.radioClick = function () {
 	                    this.data = this.value;
 	                };
 
-	                return take('methods', methods);
+	                return _methods;
 	            }
 	        }, {
-	            key: '_events',
-	            value: function _events(events, take) {
-	                if (!events) events = {};
-	                events['click'] = function () {
+	            key: 'events',
+	            value: function events(_events) {
+	                _events['click'] = function () {
 	                    this.radioClick();
 	                };
 
-	                return take('events', events);
+	                return _events;
 	            }
 	        }, {
-	            key: '_props',
-	            value: function _props(props, take) {
-	                if (!props) {
-	                    props = [];
-	                };
-	                props.push('name', 'value', 'size', 'data');
-	                return take('props', props);
+	            key: 'props',
+	            value: function props(_props, take) {
+	                return ['name', 'value', 'size', 'data'];
 	            }
 	        }]);
 

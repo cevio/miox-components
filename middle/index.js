@@ -4,8 +4,7 @@ export default function(Component){
             super();
             this.name = 'middle';
         }
-        _computed(options, take){
-            if ( !options ){ options = {} }
+        computed(options){
             options.class = function(){
                 const cls = [];
                 if ( this.align ){
@@ -13,20 +12,15 @@ export default function(Component){
                 }
                 return cls.join(' ');
             }
-            return take('computed', options);
+            return options;
         }
 
-        _template(){
-            if ( typeof this.template === 'function' ){
-                return this.template();
-            }
+        template(){
             return `<div class="mx-middle-outter" role="middle" :style="{'height':height}" :class="class"><div class="mx-middle-inner"><slot></slot></div></div>`;
         }
 
-        _props(props, take){
-            if ( !props ){ props = [] };
-            props.push('height', 'align');
-            return take('props', props);
+        props(props, take){
+            return ['height', 'align'];
         }
     }
     return {

@@ -5,10 +5,7 @@ export default function(Component){
             super();
             this.name = 'radio';
         }
-        _template(){
-            if ( typeof this.template === 'function' ){
-                return this.template();
-            }
+        template(){
             return `
             <label class="mx-radio" role="input:radio">
                 <input type="radio" :name="name" :value="value" class="mx-radio-input" v-model="data">
@@ -16,29 +13,24 @@ export default function(Component){
                 <slot><slot>
             </label>`;
         }
-        _methods(methods, take){
-            if(!methods) methods = {};
-
+        methods(methods){
             methods.radioClick=function(){
                 this.data = this.value;
             }
 
-            return take('methods', methods);
+            return methods;
         }
 
-        _events(events, take){
-            if ( !events ) events = {};
+        events(events){
             events['click'] = function(){
                 this.radioClick();
             }
 
-            return take('events', events);
+            return events;
         }
 
-        _props(props, take){
-            if ( !props ){ props = [] };
-            props.push('name', 'value', 'size', 'data');
-            return take('props', props);
+        props(props, take){
+            return ['name', 'value', 'size', 'data'];
         }
     }
     return {

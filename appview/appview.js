@@ -5,11 +5,7 @@ export default function(Component){
             this.name = 'appview';
         }
 
-        _computed(computed, take){
-            if ( !computed ){
-                computed = {};
-            }
-
+        computed(computed){
             computed.style = function(){
                 if ( this.blank ){
                     return {
@@ -18,21 +14,18 @@ export default function(Component){
                 }
             }
 
-            return take('computed', computed);
+            return computed;
         }
 
-        _template(){
-            if ( typeof this.template === 'function' ){
-                return this.template();
-            }
+        template(){
             return `<div class="mx-appview" role="appview" :class="{'mx-appview-horizontal': horizontal}" :style="style"><slot></slot></div>`;
         }
 
-        _props(props, take){
-            if ( !props ){ props = {} };
+        props(){
+            const props = {};
             props.blank = Boolean;
             props.horizontal = Boolean;
-            return take('props', props);
+            return props;
         }
     }
     return AppView;

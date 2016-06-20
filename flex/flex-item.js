@@ -5,8 +5,7 @@ export default function(Component){
             this.name = 'flex-item';
         }
 
-        _computed(options, take){
-            if ( !options ){ options = {} }
+        computed(options){
             options.style = function(){
                 const cls = {};
 
@@ -37,20 +36,15 @@ export default function(Component){
                 return classes.join(' ');
             }
 
-            return take('computed', options);
+            return options
         }
 
-        _template(){
-            if ( typeof this.template === 'function' ){
-                return this.template();
-            }
+        template(){
             return `<div class="mx-flex-item" :class="classes" :style="style"><slot></slot></div>`;
         }
 
-        _props(props, take){
-            if ( !props ){ props = [] };
-            props.push('flex', 'order', 'justify', 'align-self', 'basis');
-            return take('props', props);
+        props(){
+            return ['flex', 'order', 'justify', 'align-self', 'basis'];
         }
     }
     return Flex_Item;

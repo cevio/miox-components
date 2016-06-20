@@ -5,9 +5,7 @@ export default function(Component){
             this.name = 'flex';
         }
 
-        _computed(options, take){
-            if ( !options ){ options = {} }
-
+        computed(options){
             options.style = function(){
                 return this.flex != undefined ? {
                     boxFlex: this.flex,
@@ -41,37 +39,22 @@ export default function(Component){
                 return classes.join(' ');
             }
 
-            return take('computed', options);
+            return options
         }
 
-        _template(){
-            if ( typeof this.template === 'function' ){
-                return this.template();
-            }
+        template(){
             return `<div class="mx-flex-box" :class="class" :style="style"><slot></slot></div>`;
         }
 
-        _props(props, take){
-            if ( !props ){ props = {} };
-
-            props.flex = String;
-
-            // row|column|row-reverse|column-reverse
-            props.direction = String;
-
-            // start|center|end|between|around
-            props.justify = String;
-
-            // start|center|end|between|around
-            props.alignItems = String;
-
-            // start|center|end|between|around
-            props.alignContent = String;
-
-            // wrap|nowrap|wrap-reverse
-            props.wrap = String;
-
-            return take('props', props);
+        props(){
+            return {
+                flex: String,
+                direction: String, // row|column|row-reverse|column-reverse
+                justify: String, // start|center|end|between|around
+                alignItems: String, // start|center|end|between|around
+                alignContent: String, // start|center|end|between|around
+                wrap: String // wrap|nowrap|wrap-reverse
+            }
         }
     }
     return Flex;

@@ -5,10 +5,7 @@ export default function(Component){
             this.name = 'cell-body';
         }
 
-        _template(){
-            if ( typeof this.template === 'function' ){
-                return this.template();
-            }
+        template(){
             return `<div class="mx-cell-body" role="cell:body"><slot></slot></div>`;
         }
     }

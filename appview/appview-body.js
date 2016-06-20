@@ -5,10 +5,7 @@ export default function(Component){
             this.name = 'appview-body';
         }
 
-        _template(){
-            if ( typeof this.template === 'function' ){
-                return this.template();
-            }
+        template(){
             return `<div class="mx-appview-body" role="appview-body"><slot></slot></div>`;
         }
     }

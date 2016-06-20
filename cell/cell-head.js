@@ -5,10 +5,7 @@ export default function(Component){
             this.name = 'cell-head';
         }
 
-        _template(){
-            if ( typeof this.template === 'function' ){
-                return this.template();
-            }
+        template(){
             return `<div class="mx-cell-head" role="cell:head"><slot></slot></div>`;
         }
     }
