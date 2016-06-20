@@ -1,0 +1,10 @@
+{
+  "license": "MIT",
+  "main": "build/index.js",
+  "name": "miox-components",
+  "version": "1.0.4",
+  "description": "components",
+  "files":[
+      "build"
+  ]
+}
