@@ -7,6 +7,7 @@ import middle from './middle/index';
 import navgation from './navgation/index';
 import panel from './panel/index';
 import radio from './radio/index';
+import toolbar from './toolbar/index';
 
 export default function(miox){
     miox.define(appview(miox.component), true);
@@ -18,4 +19,5 @@ export default function(miox){
     miox.define(navgation(miox, miox.component), true);
     miox.define(panel(miox.component), true);
     miox.define(radio(miox.component), true);
+    miox.define(toolbar(miox.component), true);
 }

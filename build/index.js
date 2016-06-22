@@ -70,6 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    miox.define((0, _index14.default)(miox, miox.component), true);
 	    miox.define((0, _index16.default)(miox.component), true);
 	    miox.define((0, _index18.default)(miox.component), true);
+	    miox.define((0, _index20.default)(miox.component), true);
 	};
 
 	var _index = __webpack_require__(1);
@@ -107,6 +108,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _index17 = __webpack_require__(26);
 
 	var _index18 = _interopRequireDefault(_index17);
+
+	var _index19 = __webpack_require__(27);
+
+	var _index20 = _interopRequireDefault(_index19);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1502,6 +1507,221 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return {
 	        "radio": Radio
 	    };
+	};
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	module.exports = exports['default'];
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	exports.default = function (component) {
+	    return {
+	        "toolbar": (0, _toolbar2.default)(component),
+	        "toolbar-item": (0, _toolbarItem2.default)(component)
+	    };
+	};
+
+	var _toolbar = __webpack_require__(28);
+
+	var _toolbar2 = _interopRequireDefault(_toolbar);
+
+	var _toolbarItem = __webpack_require__(29);
+
+	var _toolbarItem2 = _interopRequireDefault(_toolbarItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	module.exports = exports['default'];
+
+/***/ },
+/* 28 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	exports.default = function (Component) {
+	    var Toolbar = function (_Component) {
+	        _inherits(Toolbar, _Component);
+
+	        function Toolbar() {
+	            _classCallCheck(this, Toolbar);
+
+	            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Toolbar).call(this));
+
+	            _this.name = 'toolbar';
+	            _this.active = null;
+	            return _this;
+	        }
+
+	        _createClass(Toolbar, [{
+	            key: 'template',
+	            value: function template() {
+	                return '\n                <div class="mx-toolbar"><flex align-items="center" justify="center"><slot></slot></flex></div>\n            ';
+	            }
+	        }, {
+	            key: 'computed',
+	            value: function computed(_computed) {
+	                _computed.items = function () {
+	                    return this.$getChildrens();
+	                };
+	                return _computed;
+	            }
+	        }, {
+	            key: 'events',
+	            value: function events(_events) {
+	                var that = this;
+	                _events['ask'] = function (bar) {
+	                    var items = this.items;
+	                    var old = that.active;
+	                    if (old !== bar) {
+	                        that.active = bar;
+	                        var a = -1,
+	                            b = -1;
+	                        bar.$emit('active:on');
+	                        a = this.inArray(bar, items);
+	                        if (old) {
+	                            old.$emit('active:off');
+	                            b = this.inArray(old, items);
+	                        }
+	                        this.$emit('change', a, b);
+	                    }
+	                };
+	                return _events;
+	            }
+	        }, {
+	            key: 'methods',
+	            value: function methods(_methods) {
+	                _methods.$getChildrens = function () {
+	                    var childrens = this.$children;
+	                    var result = [];
+	                    for (var i = 0; i < childrens.length; i++) {
+	                        var children = childrens[i];
+	                        if ('toolbar-item' === children.$options.name) {
+	                            result.push(children);
+	                        }
+	                    }
+	                    return result;
+	                };
+
+	                _methods.inArray = function (a, b) {
+	                    return b.indexOf(a);
+	                };
+
+	                return _methods;
+	            }
+	        }, {
+	            key: 'ready',
+	            value: function ready() {
+	                return function () {
+	                    var _this2 = this;
+
+	                    this.$nextTick(function () {
+	                        var items = _this2.items;
+	                        if (items.length) {
+	                            items[0].click();
+	                        }
+	                    });
+	                };
+	            }
+	        }]);
+
+	        return Toolbar;
+	    }(Component);
+
+	    return Toolbar;
+	};
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	module.exports = exports['default'];
+
+/***/ },
+/* 29 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	exports.default = function (Component) {
+	    var Toolbar_Item = function (_Component) {
+	        _inherits(Toolbar_Item, _Component);
+
+	        function Toolbar_Item() {
+	            _classCallCheck(this, Toolbar_Item);
+
+	            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Toolbar_Item).call(this));
+
+	            _this.name = 'toolbar-item';
+	            return _this;
+	        }
+
+	        _createClass(Toolbar_Item, [{
+	            key: 'data',
+	            value: function data() {
+	                return function () {
+	                    return {
+	                        active: false
+	                    };
+	                };
+	            }
+	        }, {
+	            key: 'methods',
+	            value: function methods(_methods) {
+	                _methods.click = function () {
+	                    this.$parent.$emit('ask', this);
+	                };
+	                return _methods;
+	            }
+	        }, {
+	            key: 'events',
+	            value: function events(_events) {
+	                _events['active:on'] = function () {
+	                    this.active = true;
+	                };
+	                _events['active:off'] = function () {
+	                    this.active = false;
+	                };
+	                return _events;
+	            }
+	        }, {
+	            key: 'template',
+	            value: function template() {
+	                return '\n                <flex-item flex="1" align="center"><div class="mx-toolbar-item" :class="{\'active\':active}" @click="click"><slot></slot></div></flex-item>\n            ';
+	            }
+	        }]);
+
+	        return Toolbar_Item;
+	    }(Component);
+
+	    return Toolbar_Item;
 	};
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
