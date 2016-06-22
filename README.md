@@ -173,3 +173,40 @@ native components introdution.
 ```
 
 ## component: checkbox
+
+
+## component: flex
+
+用于快速编写flex容器的组件，通过flex容器组件，你可以快速设置flex的各种属性，无需关心它的兼容写法
+
+**属性**
+
+   - `flex` flex属性 flex-grow flex-shrink flex-basis 组成的速记属性
+   - `direction` 容器内项目的方向
+   - `justify`  容器内的各项没有占用主轴上所有可用的空间时对齐容器内的各项（水平）。
+   - `alignItems` 容器内的各项的对齐方式
+   - `alignContent` 在弹性容器内的各项没有占用交叉轴上所有可用的空间时对齐容器内的各项（垂直）。
+   - `wrap` 灵活项目是否拆行或拆列。
+
+**范围**
+
+   - `flex` 同CSS写法 如'0 0 auto'
+   - `direction` row | column | row-reverse | column-reverse
+   - `justify`  start | end | between | center | around
+   - `alignItems` start | end | between | center | around
+   - `alignContent` start | end | between | center | around
+   - `wrap` wrap | nowrap | wrap-reverse
+
+```html
+<flex class="test-dice" justify="between" direction="column">
+    <flex justify="start" align-items="start">
+        <flex-item class="test-dice-pot "></flex-item>
+    </flex>
+    <flex justify="center" align-items="center">
+        <flex-item class="test-dice-pot "></flex-item>
+    </flex>
+    <flex justify="end" align-items="end">
+        <flex-item class="test-dice-pot "></flex-item>
+    </flex>
+</flex>
+```

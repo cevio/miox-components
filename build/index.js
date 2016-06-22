@@ -71,6 +71,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    miox.define((0, _index16.default)(miox.component), true);
 	    miox.define((0, _index18.default)(miox.component), true);
 	    miox.define((0, _index20.default)(miox.component), true);
+	    miox.define((0, _index22.default)(miox.component), true);
 	};
 
 	var _index = __webpack_require__(1);
@@ -112,6 +113,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _index19 = __webpack_require__(27);
 
 	var _index20 = _interopRequireDefault(_index19);
+
+	var _index21 = __webpack_require__(30);
+
+	var _index22 = _interopRequireDefault(_index21);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -563,7 +568,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                var props = {};
 	                props.linked = Boolean;
 	                props.borderColor = String;
-	                props.left = { type: String, default: '' };
+	                props.left = {
+	                    type: String,
+	                    default: ''
+	                };
 	                return props;
 	            }
 	        }]);
@@ -1722,6 +1730,64 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }(Component);
 
 	    return Toolbar_Item;
+	};
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	module.exports = exports['default'];
+
+/***/ },
+/* 30 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	exports.default = function (Component) {
+	    var Btn = function (_Component) {
+	        _inherits(Btn, _Component);
+
+	        function Btn() {
+	            _classCallCheck(this, Btn);
+
+	            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Btn).call(this));
+
+	            _this.name = 'btn';
+	            return _this;
+	        }
+
+	        _createClass(Btn, [{
+	            key: 'template',
+	            value: function template() {
+	                return '\n                <div class="mx-button">\n                </div>\n            ';
+	            }
+	        }, {
+	            key: 'props',
+	            value: function props() {
+	                var props = {};
+	                props.blocked = Boolean;
+	                props.type = {
+	                    type: String,
+	                    default: 'primary'
+	                };
+
+	                return props;
+	            }
+	        }]);
+
+	        return Btn;
+	    }(Component);
+
+	    return { Btn: Btn };
 	};
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
