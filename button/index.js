@@ -18,7 +18,7 @@ export default function(Component) {
                 :type="type"
                 @click="click">
                 <slot></slot>
-                <div class="mx-button-wave" @animationEnd="waveEnd" :class="{'mx-button-waving':waving}" :style={'left':waveStartX}></div>
+                <div v-if="waved" class="mx-button-wave" @animationEnd="waveEnd" :class="{'mx-button-waving':waving}" :style={'left':waveStartX,'backgroundColor':wavecolor,'opacity':waveopacity}></div>
             </div>
             `
         }
@@ -50,6 +50,8 @@ export default function(Component) {
             props.blocked = Boolean;
             props.rounded = Boolean;
             props.waved = Boolean;
+            props.wavecolor = String;
+            props.waveopacity = String;
             props.type = {
                 type: String,
                 default: 'default'

@@ -1773,7 +1773,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, {
 	            key: 'template',
 	            value: function template() {
-	                return '\n            <div class="mx-button" :class="{\n                \'mx-button-blocked\':blocked ,\n                \'mx-button-rounded\':rounded\n                }"\n                :type="type"\n                @click="click">\n                <slot></slot>\n                <div class="mx-button-wave" @animationEnd="waveEnd" :class="{\'mx-button-waving\':waving}" :style={\'left\':waveStartX}></div>\n            </div>\n            ';
+	                return '\n            <div class="mx-button" :class="{\n                \'mx-button-blocked\':blocked ,\n                \'mx-button-rounded\':rounded\n                }"\n                :type="type"\n                @click="click">\n                <slot></slot>\n                <div v-if="waved" class="mx-button-wave" @animationEnd="waveEnd" :class="{\'mx-button-waving\':waving}" :style={\'left\':waveStartX,\'backgroundColor\':wavecolor,\'opacity\':waveopacity}></div>\n            </div>\n            ';
 	            }
 	        }, {
 	            key: 'data',
@@ -1805,6 +1805,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                props.blocked = Boolean;
 	                props.rounded = Boolean;
 	                props.waved = Boolean;
+	                props.wavecolor = String;
+	                props.waveopacity = String;
 	                props.type = {
 	                    type: String,
 	                    default: 'default'
