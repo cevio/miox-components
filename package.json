@@ -2,7 +2,7 @@
   "license": "MIT",
   "main": "build/index.js",
   "name": "miox-components",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "description": "components",
   "files":[
       "build"

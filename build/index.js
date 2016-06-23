@@ -1753,41 +1753,70 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	exports.default = function (Component) {
-	    var Btn = function (_Component) {
-	        _inherits(Btn, _Component);
+	    var button = function (_Component) {
+	        _inherits(button, _Component);
 
-	        function Btn() {
-	            _classCallCheck(this, Btn);
+	        function button() {
+	            _classCallCheck(this, button);
 
-	            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Btn).call(this));
+	            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(button).call(this));
 
-	            _this.name = 'btn';
+	            _this.name = 'button';
 	            return _this;
 	        }
 
-	        _createClass(Btn, [{
+	        _createClass(button, [{
+	            key: 'computed',
+	            value: function computed(options) {
+	                return options;
+	            }
+	        }, {
 	            key: 'template',
 	            value: function template() {
-	                return '\n                <div class="mx-button">\n                </div>\n            ';
+	                return '\n            <div class="mx-button" :class="{\n                \'mx-button-blocked\':blocked ,\n                \'mx-button-rounded\':rounded\n                }"\n                :type="type"\n                @click="click">\n                <slot></slot>\n                <div class="mx-button-wave" @animationEnd="waveEnd" :class="{\'mx-button-waving\':waving}" :style={\'left\':waveStartX}></div>\n            </div>\n            ';
+	            }
+	        }, {
+	            key: 'data',
+	            value: function data() {
+	                return function () {
+	                    return {
+	                        waveStartX: '0',
+	                        waving: false
+	                    };
+	                };
+	            }
+	        }, {
+	            key: 'methods',
+	            value: function methods(_methods) {
+	                _methods.click = function (e) {
+	                    this.waveStartX = e.layerX + 'px';
+	                    this.waving = true;
+	                };
+	                _methods.waveEnd = function (e) {
+	                    this.waving = false;
+	                };
+
+	                return _methods;
 	            }
 	        }, {
 	            key: 'props',
 	            value: function props() {
 	                var props = {};
 	                props.blocked = Boolean;
+	                props.rounded = Boolean;
+	                props.waved = Boolean;
 	                props.type = {
 	                    type: String,
-	                    default: 'primary'
+	                    default: 'default'
 	                };
-
 	                return props;
 	            }
 	        }]);
 
-	        return Btn;
+	        return button;
 	    }(Component);
 
-	    return { Btn: Btn };
+	    return { btn: button };
 	};
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
