@@ -72,6 +72,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    miox.define((0, _index18.default)(miox.component), true);
 	    miox.define((0, _index20.default)(miox.component), true);
 	    miox.define((0, _index22.default)(miox.component), true);
+	    miox.define((0, _index24.default)(miox.component), true);
 	};
 
 	var _index = __webpack_require__(1);
@@ -117,6 +118,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _index21 = __webpack_require__(30);
 
 	var _index22 = _interopRequireDefault(_index21);
+
+	var _index23 = __webpack_require__(31);
+
+	var _index24 = _interopRequireDefault(_index23);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1819,6 +1824,88 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }(Component);
 
 	    return { btn: button };
+	};
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	module.exports = exports['default'];
+
+/***/ },
+/* 31 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	exports.default = function (Component) {
+	    var wave = function (_Component) {
+	        _inherits(wave, _Component);
+
+	        function wave() {
+	            _classCallCheck(this, wave);
+
+	            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(wave).call(this));
+
+	            _this.name = 'wave';
+	            return _this;
+	        }
+
+	        _createClass(wave, [{
+	            key: 'template',
+	            value: function template() {
+	                return '\n            <div class="mx-wave"  @click="waveClick" :class="{\'blocked\':blocked}" :style="{\'borderRadius\':radius}">\n                <slot></slot>\n                <div  class="mx-wave-cover" @animationEnd="waveEnd" :class="{\'mx-wave-waving\':waving}"\n                :style={\'left\':waveStartX,\'backgroundColor\':color,\'opacity\':opacity,\'animationDutarion\':duration}></div>\n            </div>\n            ';
+	            }
+	        }, {
+	            key: 'data',
+	            value: function data() {
+	                return function () {
+	                    return {
+	                        waveStartX: '0',
+	                        waving: false
+	                    };
+	                };
+	            }
+	        }, {
+	            key: 'methods',
+	            value: function methods(_methods) {
+	                _methods.waveClick = function (e) {
+	                    this.waveStartX = e.layerX + 'px';
+	                    this.waving = true;
+	                };
+	                _methods.waveEnd = function (e) {
+	                    this.waving = false;
+	                };
+
+	                return _methods;
+	            }
+	        }, {
+	            key: 'props',
+	            value: function props() {
+	                var props = {};
+
+	                props.color = String;
+	                props.opacity = String;
+	                props.duration = String;
+	                props.blocked = Boolean;
+	                props.radius = String;
+
+	                return props;
+	            }
+	        }]);
+
+	        return wave;
+	    }(Component);
+
+	    return { wave: wave };
 	};
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
