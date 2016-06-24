@@ -13,12 +13,12 @@ export default function(Component) {
             return `
             <div class="mx-button" :class="{
                 'mx-button-blocked':blocked ,
-                'mx-button-rounded':rounded
+                'mx-button-loading':loading
                 }"
                 :type="type"
-                @click="click">
+                :style="{'borderRadius':radius,'fontSize':size}">
+                <div class="mx-button-loading-icon" :class="{'loading':loading}" ></div>
                 <slot></slot>
-                <div v-if="waved" class="mx-button-wave" @animationEnd="waveEnd" :class="{'mx-button-waving':waving}" :style={'left':waveStartX,'backgroundColor':wavecolor,'opacity':waveopacity}></div>
             </div>
             `
         }
@@ -32,26 +32,14 @@ export default function(Component) {
             }
         }
 
-        methods(methods){
-            methods.click=function(e){
-                this.waveStartX = e.layerX+'px';
-                this.waving = true;
-
-            }
-            methods.waveEnd=function(e){
-                this.waving = false;
-            }
-
-            return methods;
-        }
 
         props() {
             const props = {};
             props.blocked = Boolean;
-            props.rounded = Boolean;
-            props.waved = Boolean;
-            props.wavecolor = String;
+            props.radius = String;
             props.waveopacity = String;
+            props.loading = Boolean;
+            props.size = String;
             props.type = {
                 type: String,
                 default: 'default'

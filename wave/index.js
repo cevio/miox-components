@@ -11,7 +11,7 @@ export default function(Component) {
             <div class="mx-wave"  @click="waveClick" :class="{'blocked':blocked}" :style="{'borderRadius':radius}">
                 <slot></slot>
                 <div  class="mx-wave-cover" @animationEnd="waveEnd" :class="{'mx-wave-waving':waving}"
-                :style={'left':waveStartX,'backgroundColor':color,'opacity':opacity,'animationDutarion':duration}></div>
+                :style={'left':waveStartX,'backgroundColor':color,'opacity':opacity,'animationDuration':duration}></div>
             </div>
             `
         }

@@ -1778,7 +1778,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, {
 	            key: 'template',
 	            value: function template() {
-	                return '\n            <div class="mx-button" :class="{\n                \'mx-button-blocked\':blocked ,\n                \'mx-button-rounded\':rounded\n                }"\n                :type="type"\n                @click="click">\n                <slot></slot>\n                <div v-if="waved" class="mx-button-wave" @animationEnd="waveEnd" :class="{\'mx-button-waving\':waving}" :style={\'left\':waveStartX,\'backgroundColor\':wavecolor,\'opacity\':waveopacity}></div>\n            </div>\n            ';
+	                return '\n            <div class="mx-button" :class="{\n                \'mx-button-blocked\':blocked ,\n                \'mx-button-loading\':loading\n                }"\n                :type="type"\n                :style="{\'borderRadius\':radius,\'fontSize\':size}">\n                <div class="mx-button-loading-icon" :class="{\'loading\':loading}" ></div>\n                <slot></slot>\n            </div>\n            ';
 	            }
 	        }, {
 	            key: 'data',
@@ -1791,27 +1791,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	                };
 	            }
 	        }, {
-	            key: 'methods',
-	            value: function methods(_methods) {
-	                _methods.click = function (e) {
-	                    this.waveStartX = e.layerX + 'px';
-	                    this.waving = true;
-	                };
-	                _methods.waveEnd = function (e) {
-	                    this.waving = false;
-	                };
-
-	                return _methods;
-	            }
-	        }, {
 	            key: 'props',
 	            value: function props() {
 	                var props = {};
 	                props.blocked = Boolean;
-	                props.rounded = Boolean;
-	                props.waved = Boolean;
-	                props.wavecolor = String;
+	                props.radius = String;
 	                props.waveopacity = String;
+	                props.loading = Boolean;
+	                props.size = String;
 	                props.type = {
 	                    type: String,
 	                    default: 'default'
@@ -1862,7 +1849,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _createClass(wave, [{
 	            key: 'template',
 	            value: function template() {
-	                return '\n            <div class="mx-wave"  @click="waveClick" :class="{\'blocked\':blocked}" :style="{\'borderRadius\':radius}">\n                <slot></slot>\n                <div  class="mx-wave-cover" @animationEnd="waveEnd" :class="{\'mx-wave-waving\':waving}"\n                :style={\'left\':waveStartX,\'backgroundColor\':color,\'opacity\':opacity,\'animationDutarion\':duration}></div>\n            </div>\n            ';
+	                return '\n            <div class="mx-wave"  @click="waveClick" :class="{\'blocked\':blocked}" :style="{\'borderRadius\':radius}">\n                <slot></slot>\n                <div  class="mx-wave-cover" @animationEnd="waveEnd" :class="{\'mx-wave-waving\':waving}"\n                :style={\'left\':waveStartX,\'backgroundColor\':color,\'opacity\':opacity,\'animationDuration\':duration}></div>\n            </div>\n            ';
 	            }
 	        }, {
 	            key: 'data',
