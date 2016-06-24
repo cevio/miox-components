@@ -6,5 +6,9 @@
   "description": "components",
   "files":[
       "build"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cevio/miox-components"
+  },
 }
