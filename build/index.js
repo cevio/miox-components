@@ -73,6 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    miox.define((0, _index20.default)(miox.component), true);
 	    miox.define((0, _index22.default)(miox.component), true);
 	    miox.define((0, _index24.default)(miox.component), true);
+	    miox.define((0, _index26.default)(miox.component), true);
 	};
 
 	var _index = __webpack_require__(1);
@@ -122,6 +123,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _index23 = __webpack_require__(31);
 
 	var _index24 = _interopRequireDefault(_index23);
+
+	var _index25 = __webpack_require__(32);
+
+	var _index26 = _interopRequireDefault(_index25);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -799,7 +804,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	module.exports = exports['default'];
+	module.exports = exports["default"];
 
 /***/ },
 /* 14 */
@@ -1796,7 +1801,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                var props = {};
 	                props.blocked = Boolean;
 	                props.radius = String;
-	                props.waveopacity = String;
 	                props.loading = Boolean;
 	                props.size = String;
 	                props.type = {
@@ -1902,6 +1906,91 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	module.exports = exports['default'];
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	exports.default = function (Component) {
+	    var animate = function (_Component) {
+	        _inherits(animate, _Component);
+
+	        function animate() {
+	            _classCallCheck(this, animate);
+
+	            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(animate).call(this));
+
+	            _this.name = 'animate';
+	            return _this;
+	        }
+
+	        _createClass(animate, [{
+	            key: "computed",
+	            value: function computed(options) {
+	                options.animateCls = function () {
+	                    if (this.show) {
+	                        return this.in;
+	                    } else {
+	                        return this.out;
+	                    }
+	                };
+
+	                return options;
+	            }
+	        }, {
+	            key: "watch",
+	            value: function watch(_watch) {
+	                _watch.show = function (val, oldVal) {
+	                    var _this2 = this;
+
+	                    if (!val) {
+	                        setTimeout(function () {
+	                            _this2.enddisplay = "none";
+	                        }, 1000);
+	                    } else {
+	                        this.enddisplay = "block";
+	                    }
+	                };
+	                return _watch;
+	            }
+	        }, {
+	            key: "template",
+	            value: function template() {
+	                return "\n            <div class=\"mx-animate\" :class=\"animateCls\" :style=\"{'display':enddisplay}\" >\n                <slot></slot>\n            </div>\n            ";
+	            }
+	        }, {
+	            key: "props",
+	            value: function props() {
+	                var props = {};
+	                props.in = String;
+	                props.out = String;
+	                props.show = Boolean;
+
+	                return props;
+	            }
+	        }]);
+
+	        return animate;
+	    }(Component);
+
+	    return { animate: animate };
+	};
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	module.exports = exports["default"];
 
 /***/ }
 /******/ ])
