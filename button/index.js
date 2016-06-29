@@ -37,7 +37,6 @@ export default function(Component) {
             const props = {};
             props.blocked = Boolean;
             props.radius = String;
-            props.waveopacity = String;
             props.loading = Boolean;
             props.size = String;
             props.type = {

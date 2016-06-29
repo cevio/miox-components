@@ -8,8 +8,9 @@ import navgation from './navgation/index';
 import panel from './panel/index';
 import radio from './radio/index';
 import toolbar from './toolbar/index';
-import btn from './button/index'
-import wave from './wave/index'
+import btn from './button/index';
+import wave from './wave/index';
+import animate from './animate/index';
 
 export default function(miox){
     miox.define(appview(miox.component), true);
@@ -24,4 +25,5 @@ export default function(miox){
     miox.define(toolbar(miox.component), true);
     miox.define(btn(miox.component), true);
     miox.define(wave(miox.component), true);
+    miox.define(animate(miox.component), true);
 }
