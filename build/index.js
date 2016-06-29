@@ -1180,7 +1180,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            key: 'computed',
 	            value: function computed(_computed) {
 	                _computed.grid = function () {
-	                    return (this.center ? 1 : 0) + ' 0 ' + (this.width || 0);
+	                    return (this.center ? 1 : 0) + ' 0 ' + (this.width || "auto");
 	                };
 	                return _computed;
 	            }

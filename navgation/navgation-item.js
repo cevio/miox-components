@@ -8,7 +8,7 @@ export default function(miox, Component){
 
         computed(computed){
             computed.grid = function(){
-                return (this.center ? 1 : 0 ) + ' 0 ' + (this.width || 0);
+                return (this.center ? 1 : 0 ) + ' 0 ' + (this.width || "auto");
             }
             return computed;
         }
